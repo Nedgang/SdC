@@ -31,10 +31,15 @@ La structure de RDF est extrêmement générique et sert de base à un certain n
 ### Languages de requête
 Il y'en a un certain nombre. Le language SPARQL est à la fois celui évoqué dans le cours, et destiné à devenir le standard dans ce domaine.
 ex:
+
 PREFIX foaf:   <http://xmlns.com/foaf/0.1/>
+
 SELECT ?name ?mbox
+
 WHERE
+
   { ?x foaf:name ?name.
+
     ?x foaf:mbox ?mbox }
 
 ## SPARQL: SPARQL Protocol and RDF Query Language
@@ -48,38 +53,63 @@ Technologie clé du web sémantique, adapté à la structure spécifique des gra
 Les exemples 1 et 2 vont porter sur un graphe RDF fait en TP, exemple_graph_rdf.txt, normalement fourni avec le document.
 ####Ex 1
 \### On veut obtenir toutes les réactions qui consomment du glucose
+
 \### On prend chaque réaction du graphe, sans redondance
+
 SELECT DISTINCT ?reaction
+
 WHERE{
+
     :glucose :estConsomméPar ?reaction.
+
 }
 
 ####Ex 2
 \### On veut obtenir toutes les réactions qui produisent du E.
+
 SELECT DISTINCT ?reaction
+
 WHERE{
+
     ?reaction :produit :E.
+
 }
 
 ####Ex 3
 Cet exemple porte sur un graphe assez fréquement utilisé:
+
 @prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+
 \_:a  foaf:name   "Johnny Lee Outlaw" .
+
 \_:a  foaf:mbox   <mailto:jlow@example.com> .
+
 \_:b  foaf:name   "Peter Goodguy" .
+
 \_:b  foaf:mbox   <mailto:peter@example.org> .
+
 \_:c  foaf:mbox   <mailto:carol@example.org> .
 
+
 **Requete**
+
 PREFIX foaf:   <http://xmlns.com/foaf/0.1/>
+
 \### On prend tout name et mbox dans le graph
+
 SELECT ?name ?mbox
+
 \### Où name et mbox sont associés au même sujet
+
 WHERE
+
   { ?x foaf:name ?name .
+
     ?x foaf:mbox ?mbox }
 
+
 **Résultat**
+
 |       name        |           mbox           |
 |:-----------------:|:------------------------:|
 |"Johnny Lee Outlaw"|<mailto:jlow@example.com> |
@@ -89,35 +119,61 @@ WHERE
 ####Ex 4
 A partir d'ici, ce seront des exemples de requêtes sur le CHEBI, une base de données sur les petites molécules.
 \### IRI
+
 PREFIX chebi: <http://purl.obolibrary.org/obo/CHEBI_>
+
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 
+
 \### Pour obtenir tout les descendants du glucose (id chebi: 17234)
+
 \### On récupère les descendants, avec son label si il existe.
+
 SELECT DISTINCT ?desc (str(?descLabel) as ?label)
+
 WHERE{
+
 \###Qui sont sous classe du glucose
+
     ?desc rdfs:subClassOf+ chebi:17234.
+
 \### si il existe un descLabel du descendant, il est retourné
+
     OPTIONAL {?desc rdfs:label ?descLabel.}
+
 }
 
 \### Pour obtenir tout les ancetres du glucose:
+
 SELECT DISTINCT ?anc (str(?ancLabel) as ?label)
+
 WHERE {
+
     chebi:17234 rdfs:subClassOf+ ?anc .
+
     ?anc rdf:type owl:Class .
+
     OPTIONAL { ?anc rdfs:label ?ancLabel .  }
+
 }
 
 \### Ancêtres communs du glucose et myricoside
+
 SELECT DISTINCT ?anc (str(?ancLabel) as ?label)
+
 WHERE {
+
    chebi:17234 rdfs:subClassOf+ ?anc .
+
    chebi:7055 rdfs:subClassOf+ ?anc .
+
    ?anc rdf:type owl:Class .
+
    OPTIONAL { ?anc rdfs:label ?ancLabel .  }
+
 }
 
