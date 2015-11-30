@@ -1,0 +1,26 @@
+:glucose        :estConsommePar :R1.
+:eau    :estConsommePar :R1.
+:eau    :estConsommePar :R2.
+:eau    :estConsommePar :R3.
+:mannose        :estConsommePar :R2.
+:sulfate        :estConsommePar :R3.
+
+:R1 :produit    :D.
+:R1 :produit    :E.
+:R2 :produit    :E.
+:R2 :produit    :F.
+:R3 :produit    :F.
+:R3 :produit    :H.
+
+:glucose        rdf:type        :metabolite.
+:mannose        rdf:type        :metabolite.
+:sulfate        rdf:type        :metabolite.
+:eau        rdf:type        :metabolite.
+
+:R1     rdf:type        :reaction.
+:R2     rdf:type        :reaction.
+:R3     rdf:type        :reaction.
+
+:glucose        :aStoechio      :R1glu.
+:R1glu  hasValue        "1"^^ xsd:int.
+:R1glu :estConsommePar :R1.
