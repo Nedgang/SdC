@@ -74,8 +74,7 @@ Les exemples 1 et 2 vont porter sur un graphe RDF fait en TP, exemple_graph_rdf.
         }
 
 ####Ex 2
-\### On veut obtenir toutes les réactions qui produisent du E.
-
+        ### On veut obtenir toutes les réactions qui produisent du E.
         SELECT DISTINCT ?reaction
         WHERE{
             ?reaction :produit :E.
@@ -113,6 +112,7 @@ Cet exemple porte sur un graphe assez fréquement utilisé:
 
 ####Ex 4
 A partir d'ici, ce seront des exemples de requêtes sur le CHEBI, une base de données sur les petites molécules.
+
         ### IRI
         PREFIX chebi: <http://purl.obolibrary.org/obo/CHEBI_>
         PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -130,6 +130,7 @@ A partir d'ici, ce seront des exemples de requêtes sur le CHEBI, une base de do
             OPTIONAL {?desc rdfs:label ?descLabel.}
         }
 
+####Ex 5
         ### Pour obtenir tout les ancetres du glucose:
         SELECT DISTINCT ?anc (str(?ancLabel) as ?label)
         WHERE {
@@ -138,6 +139,7 @@ A partir d'ici, ce seront des exemples de requêtes sur le CHEBI, une base de do
             OPTIONAL { ?anc rdfs:label ?ancLabel .  }
         }
 
+####Ex 6
         ### Ancêtres communs du glucose et myricoside
         SELECT DISTINCT ?anc (str(?ancLabel) as ?label)
         WHERE {
