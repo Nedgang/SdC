@@ -84,11 +84,11 @@ Les exemples 1 et 2 vont porter sur un graphe RDF fait en TP, exemple_graph_rdf.
 Cet exemple porte sur un graphe assez fréquement utilisé:
 
         @prefix foaf:  <http://xmlns.com/foaf/0.1/> .
-        \_:a  foaf:name   "Johnny Lee Outlaw" .
-        \_:a  foaf:mbox   <mailto:jlow@example.com> .
-        \_:b  foaf:name   "Peter Goodguy" .
-        \_:b  foaf:mbox   <mailto:peter@example.org> .
-        \_:c  foaf:mbox   <mailto:carol@example.org> .
+        _:a  foaf:name   "Johnny Lee Outlaw" .
+        _:a  foaf:mbox   <mailto:jlow@example.com> .
+        _:b  foaf:name   "Peter Goodguy" .
+        _:b  foaf:mbox   <mailto:peter@example.org> .
+        _:c  foaf:mbox   <mailto:carol@example.org> .
 
 
 **Requete**
