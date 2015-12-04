@@ -81,7 +81,7 @@ Les exemples 1 et 2 vont porter sur un graphe RDF fait en TP, exemple_graph_rdf.
         }
 
 ####Ex 3
-Cet exemple porte sur un graphe assez fréquement utilisé:
+Cet exemple porte sur un graphe assez fréquement utilisé comme exemple dans les tuto portant sur SPARQL:
 
         @prefix foaf:  <http://xmlns.com/foaf/0.1/> .
         _:a  foaf:name   "Johnny Lee Outlaw" .
