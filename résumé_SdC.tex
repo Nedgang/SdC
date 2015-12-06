@@ -72,8 +72,12 @@ Une des syntaxe de RDF est le RDF/XML.
 Document RDF = ensemble de triplets\\
 triplet RDF = (sujet, prédicat, objet)\\
 Avec: sujet -> ressource à décrire; prédicat -> propriété applicable à la ressource; objet -> valeur de la propriété.\\
-Le prédicat est **obligatoirement** identifié par une URI.\\
-ex:\\
+Le prédicat est \textbf{obligatoirement} identifié par une URI.\\
+ex:
+\begin{lstlisting}
+:glucose rdf:type :metabolite.
+\end{lstlisting}
+
 Un document RDF ainsi formé correspond à un multigraphe orienté étiqueté. Chaque triplet correspond alors à un arc orienté dont le label est le prédicat, le nœud source est le sujet et le nœud cible est l'objet.
 
 La structure de RDF est extrêmement générique et sert de base à un certain nombre de schémas ou vocabulaires dédiés à des applications spécifiques comme les langages d'ontologie RDFS et OWL.

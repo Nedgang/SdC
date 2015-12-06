@@ -6,8 +6,11 @@ Le seul intérêt de ce doc en fait, c'est de les rassembler.
 
 ## URI: Uniform Resource Identifier
 Courte chaîne de caractères identifiant une ressource sur un réseau.
+
 Doit permettre d'identifier une ressource de manière permanente, même si la ressource est déplacée ou supprimée.
+
 ex: Dans le monde réel, y'a l'ISBN pour les livres. Ben c'est pareil, mais sur le web.
+
 Les adresses IRI incluent les adresses URI et les adresses URL.
 
 ## Web sémantique
@@ -37,10 +40,15 @@ Une des syntaxe de RDF est le RDF/XML.
 
 ### Principes fondamentaux
 Document RDF = ensemble de triplets
+
 triplet RDF = (sujet, prédicat, objet)
+
 Avec: sujet -> ressource à décrire; prédicat -> propriété applicable à la ressource; objet -> valeur de la propriété.
+
 Le prédicat est **obligatoirement** identifié par une URI.
+
 ex: 
+        :glucose        rdf:type        :metabolite.
 
 Un document RDF ainsi formé correspond à un multigraphe orienté étiqueté. Chaque triplet correspond alors à un arc orienté dont le label est le prédicat, le nœud source est le sujet et le nœud cible est l'objet.
 
