@@ -9,4 +9,4 @@ Sinon, il y'a le résumé.tex, dont une version déjà compilée en pdf est disp
 ## Relecteurs:
 Vous aurez vos noms inscrits ici, c'est la classe, non? 
 
-**Attention**, il n'y a pas encore eu de relecture, si vous voyez des erreurs, signalez les que je corrige :)
+**Attention**, il n'y a pas encore eu de relecture, si vous voyez des erreurs, signalez les que je les corrige :)
